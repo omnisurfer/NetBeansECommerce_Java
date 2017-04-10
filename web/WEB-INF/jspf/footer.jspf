@@ -1,0 +1,13 @@
+<%-- 
+    Document   : footer
+    Created on : Apr 9, 2017, 7:00:33 PM
+    Author     : omnis
+--%>
+
+    <div id="footer">
+        <hr>
+        <p id="footerText">[ footer text ]</p>
+    </div>            
+</div>
+</body>
+</html>
