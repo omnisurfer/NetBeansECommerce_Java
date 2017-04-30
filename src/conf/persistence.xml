@@ -3,7 +3,6 @@
     <persistence-unit name="NetBeansECommercePU" transaction-type="JTA">
         <jta-data-source>jdbc/affablebean</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <properties/>
         <properties>
             <property name="eclipselink.logging.level" value="FINEST"/>
         </properties>
