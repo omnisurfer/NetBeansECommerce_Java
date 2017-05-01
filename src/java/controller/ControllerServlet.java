@@ -188,7 +188,17 @@ public class ControllerServlet extends HttpServlet {
 
         // if purchase action is called
         } else if (userPath.equals("/purchase")) {
-            // TODO: Implement purchase action
+            if (cart != null)
+            {
+                String name, email, phone, address, cityRegion, ccNumber;
+                
+                name = request.getParameter("name");
+                email = request.getParameter("email");
+                phone = request.getParameter("phone");
+                address = request.getParameter("address");
+                cityRegion = request.getParameter("cityRegion");
+                ccNumber = request.getParameter("creditCard");
+            }
 
             userPath = "/confirmation";
         }
