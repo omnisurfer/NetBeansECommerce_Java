@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package entity;
 
 import java.io.Serializable;
@@ -18,33 +18,28 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author omnis
+ * @author tgiunipero
  */
 @Entity
 @Table(name = "category")
-@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Category.findAll", query = "SELECT c FROM Category c")
-    , @NamedQuery(name = "Category.findById", query = "SELECT c FROM Category c WHERE c.id = :id")
-    , @NamedQuery(name = "Category.findByName", query = "SELECT c FROM Category c WHERE c.name = :name")})
+    @NamedQuery(name = "Category.findAll", query = "SELECT c FROM Category c"),
+    @NamedQuery(name = "Category.findById", query = "SELECT c FROM Category c WHERE c.id = :id"),
+    @NamedQuery(name = "Category.findByName", query = "SELECT c FROM Category c WHERE c.name = :name")})
 public class Category implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Short id;
-    @Size(max = 45)
+    @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Collection<Product> productCollection;
 
     public Category() {
@@ -52,6 +47,11 @@ public class Category implements Serializable {
 
     public Category(Short id) {
         this.id = id;
+    }
+
+    public Category(Short id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Short getId() {
@@ -70,7 +70,6 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    @XmlTransient
     public Collection<Product> getProductCollection() {
         return productCollection;
     }
@@ -101,7 +100,7 @@ public class Category implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Category[ id=" + id + " ]";
+        return "entity.Category[id=" + id + "]";
     }
-    
+
 }
