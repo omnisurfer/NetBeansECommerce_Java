@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package session;
 
 import entity.Customer;
@@ -12,15 +12,13 @@ import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author omnis
+ * @author tgiunipero
  */
 @Stateless
 public class CustomerFacade extends AbstractFacade<Customer> {
-
-    @PersistenceContext(unitName = "NetBeansECommercePU")
+    @PersistenceContext(unitName = "AffableBeanPU")
     private EntityManager em;
 
-    @Override
     protected EntityManager getEntityManager() {
         return em;
     }
@@ -28,5 +26,5 @@ public class CustomerFacade extends AbstractFacade<Customer> {
     public CustomerFacade() {
         super(Customer.class);
     }
-    
+
 }
