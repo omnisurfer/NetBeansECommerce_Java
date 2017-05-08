@@ -18,7 +18,7 @@
                 </div>
             </c:when>
             <c:otherwise>
-                <a href="category?${category.id}" class="categoryButton">
+                <a href="<c:url value='category?${category.id}'/>" class="categoryButton">
                     <span class="categoryText">
                         ${category.name}
                     </span>
@@ -32,7 +32,7 @@
 
 <div id="categoryRightColumn">
 
-    <p id="categoryTitle">${selectedCategory.name}</p>
+    <p id="categoryTitle"><fmt:message key="${selectedCategory.name}" /></p>
 
     <table id="productTable">
 
